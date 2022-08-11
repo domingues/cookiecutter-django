@@ -1,0 +1,9 @@
+{
+  "project_title": "Human readable project title",
+  "project_name": "{{ cookiecutter.project_title.lower()|replace(' ', '-')|replace('_', '-')|replace('.', '-')|trim() }}",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace('-', '_') }}",
+  "project_description": "Short project description",
+  "project_url": "Project URL",
+  "project_repo": "{{ cookiecutter.project_url }}.git",
+  "python_namespace": "domingues"
+}

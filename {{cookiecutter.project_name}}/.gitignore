@@ -1,0 +1,19 @@
+.env
+
+# Django project
+*.sqlite3
+*.mo
+/static/
+/media/
+
+# Python
+__pycache__/
+*.egg-info/
+*.pyc
+/venv/
+
+# IDEA
+/.idea/
+
+# MacOS
+.DS_Store
