@@ -48,7 +48,7 @@ pip install {{cookiecutter.project_name}}@git+{{cookiecutter.project_repo}}@$VER
 ```
 
 #### Config
-Read the official [deployment checklist](https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/).
+Read the official [deployment checklist](https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/).
 ```bash
 export DJANGO_SETTINGS_MODULE={{cookiecutter.python_namespace}}.{{cookiecutter.project_slug}}.settings
 ```
@@ -78,11 +78,11 @@ And serve static files of `$PWD/static/` and `$PWD/media/` on HTTP `/static/` an
 
 # Environment variables
 
-| Name             | Default value                    | Description |
-| ---------------- | -------------------------------- | ----------- |
-| PROJECT_BASE_DIR | `''` (current working directory) | Folder containing the project runtime files: `.env`, databases, media and collected statics. |
-| LOAD_DOTENV      | `True`                           | Try to load environment variables from `$PROJECT_BASE_DIR/.env` file. |
-| SECRET_KEY       |                                  | Django [`SECRET_KEY`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-SECRET_KEY) setting. |
-| DEBUG            | `False`                          | Django [`DEBUG`](https://docs.djangoproject.com/en/4.1/ref/settings/#debug) setting. |
-| ALLOWED_HOSTS    | `[]`                             | Django [`ALLOWED_HOSTS`](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting. |
-| INTERNAL_IPS     | `[]`                             | Django [`INTERNAL_IPS`](https://docs.djangoproject.com/en/4.1/ref/settings/#internal-ips) setting. Also used to activate the debug toolbar. |
+| Name             | Default value                    | Description                                                                                                                                 |
+| ---------------- | -------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------|
+| PROJECT_BASE_DIR | `""` (current working directory) | Folder containing the project runtime files: `.env`, databases, media and collected statics.                                                |
+| LOAD_DOTENV      | `True`                           | Try to load environment variables from `$PROJECT_BASE_DIR/.env` file.                                                                       |
+| SECRET_KEY       |                                  | Django [`SECRET_KEY`](https://docs.djangoproject.com/en/4.2/ref/settings/#std:setting-SECRET_KEY) setting.                                  |
+| DEBUG            | `False`                          | Django [`DEBUG`](https://docs.djangoproject.com/en/4.2/ref/settings/#debug) setting.                                                        |
+| ALLOWED_HOSTS    | `[]`                             | Django [`ALLOWED_HOSTS`](https://docs.djangoproject.com/en/4.2/ref/settings/#allowed-hosts) setting.                                        |
+| INTERNAL_IPS     | `[]`                             | Django [`INTERNAL_IPS`](https://docs.djangoproject.com/en/4.2/ref/settings/#internal-ips) setting. Also used to activate the debug toolbar. |

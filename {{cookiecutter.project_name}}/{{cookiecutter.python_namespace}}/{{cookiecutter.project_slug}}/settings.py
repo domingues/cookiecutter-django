@@ -2,10 +2,10 @@
 Django settings for {{cookiecutter.project_slug}} project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/4.1/topics/settings/
+https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/4.1/ref/settings/
+https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import copy
@@ -93,7 +93,7 @@ FORM_RENDERER = "django.forms.renderers.DjangoDivFormRenderer"
 WSGI_APPLICATION = "{{cookiecutter.python_namespace}}.{{cookiecutter.project_slug}}.wsgi.application"
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
@@ -105,7 +105,7 @@ DATABASES = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,12 +123,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Force Django to log to terminal when DEBUG is false
-# https://docs.djangoproject.com/en/4.1/topics/logging/
+# https://docs.djangoproject.com/en/4.2/topics/logging/
 LOGGING = copy.deepcopy(log.DEFAULT_LOGGING)
 LOGGING["handlers"]["console"]["filters"] = []
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "pt-pt"
 
@@ -144,7 +144,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
 
