@@ -1,5 +1,4 @@
-"""
-Django settings for {{cookiecutter.project_slug}} project.
+"""Django settings for {{cookiecutter.project_slug}} project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/4.2/topics/settings/

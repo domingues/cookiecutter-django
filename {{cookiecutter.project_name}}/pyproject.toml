@@ -1,9 +1,40 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.black]
-target-version = ["py311"]
+[project]
+name = "{{cookiecutter.project_name}}"
+dynamic = ["version"]
+description = "{{cookiecutter.project_description}}"
+readme = "README.md"
 
-[tool.isort]
-profile = "black"
+dependencies = [
+    "Django~=4.2.11",
+    "django-environ~=0.11.2",
+    "django-debug-toolbar~=4.3.0",
+]
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+lint = [
+    "ruff",
+]
+stubs = [
+]
+
+[project.urls]
+Homepage = "{{cookiecutter.project_url}}"
+Repository = "{{cookiecutter.project_repo}}"
+
+[tool.hatch.version]
+path = "{{cookiecutter.python_namespace}}/{{cookiecutter.project_slug}}/__init__.py"
+
+[tool.ruff.lint]
+extend-select = [
+    "I",
+    "D",
+    "UP",
+]
+extend-ignore = [
+    "D1",
+]

@@ -8,9 +8,9 @@
 
 # Python
 __pycache__/
-*.egg-info/
 *.pyc
 /venv/
+.ruff_cache/
 
 # IDEA
 /.idea/
