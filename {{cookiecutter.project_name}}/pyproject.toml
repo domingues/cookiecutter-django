@@ -31,9 +31,8 @@ path = "{{cookiecutter.python_namespace}}/{{cookiecutter.project_slug}}/__init__
 
 [tool.ruff.lint]
 extend-select = [
-    "I",
-    "D",
-    "UP",
+    "I", "N", "D", "UP", "B", "A", "Q",
+    "DJ",
 ]
 extend-ignore = [
     "D1",
