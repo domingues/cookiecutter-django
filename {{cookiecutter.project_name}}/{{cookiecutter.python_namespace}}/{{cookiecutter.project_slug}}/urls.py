@@ -1,7 +1,7 @@
 """URL config for {{cookiecutter.project_slug}} project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
 """
 
 import debug_toolbar
