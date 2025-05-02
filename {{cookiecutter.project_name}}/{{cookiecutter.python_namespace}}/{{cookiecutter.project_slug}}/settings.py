@@ -149,6 +149,8 @@ STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "static"
 
+SERVE_STATIC_FILES = env.bool("DJANGO_SERVE_STATIC_FILES", False)
+
 MEDIA_URL = "media/"
 
 MEDIA_ROOT = BASE_DIR / "media"

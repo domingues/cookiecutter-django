@@ -11,6 +11,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from .storage import serve_static_files
+
 urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
 ]
@@ -20,3 +22,4 @@ urlpatterns += i18n_patterns(
     path("__debug__/", include(debug_toolbar.urls)),
 )
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += serve_static_files()
