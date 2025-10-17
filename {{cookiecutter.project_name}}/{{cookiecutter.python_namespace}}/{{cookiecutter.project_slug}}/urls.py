@@ -4,7 +4,7 @@ The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
 """
 
-import debug_toolbar
+from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
@@ -13,13 +13,13 @@ from django.urls import include, path
 
 from .storage import serve_static_files
 
-urlpatterns = [
-    path("i18n/", include("django.conf.urls.i18n")),
-]
-urlpatterns += i18n_patterns(
+urlpatterns = i18n_patterns(
     path("", include("{{cookiecutter.python_namespace}}.{{cookiecutter.project_slug}}.core.urls")),
     path("admin/", admin.site.urls),
-    path("__debug__/", include(debug_toolbar.urls)),
 )
+urlpatterns += [
+    path("i18n/", include("django.conf.urls.i18n")),
+]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += serve_static_files()
+urlpatterns += debug_toolbar_urls()
