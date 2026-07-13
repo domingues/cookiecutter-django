@@ -1,4 +1,4 @@
-.env
+*.env
 
 # Django project
 *.sqlite3
@@ -9,11 +9,6 @@
 # Python
 __pycache__/
 *.pyc
-/venv/
-.ruff_cache/
-
-# IDEA
-/.idea/
 
 # MacOS
 .DS_Store
