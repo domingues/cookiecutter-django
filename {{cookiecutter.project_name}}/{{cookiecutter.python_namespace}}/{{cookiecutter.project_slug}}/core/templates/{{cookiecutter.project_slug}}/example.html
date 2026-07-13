@@ -1,5 +1,11 @@
-{{ "{% load static %}" }}
+{% load static %}
 <!doctype html>
-<title>{{ "{{ title }}" }}</title>
-<h1>{{ "{{ title }}" }}</h1>
-<img src="{{ '{% static "example.jpg" %}' }}">
+<html>
+<head>
+<title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ title }}</h1>
+<img src="{% static "example.jpg" %}">
+</body>
+</html>

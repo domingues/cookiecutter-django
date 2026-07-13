@@ -12,6 +12,7 @@ dependencies = [
     "Django~=5.2.16",
     "django-environ>=0.13.0",
     "django-debug-toolbar>=7.0.0",
+    "django-browser-reload>=1.21.0",
 ]
 
 [project.urls]

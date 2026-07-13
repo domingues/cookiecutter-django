@@ -22,6 +22,7 @@ pip install -e .
 cat > .env << DOTENV
 SECRET_KEY=
 DEBUG=true
+DEV=true
 INTERNAL_IPS=127.0.0.1
 DOTENV
 ```
@@ -79,11 +80,12 @@ And serve static files of `$PWD/static/` and `$PWD/media/` on HTTP `/static/` an
 # Environment variables
 
 | Name                      | Default value                    | Description                                                                                                                                 |
-|---------------------------| -------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------------|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | PROJECT_BASE_DIR          | `""` (current working directory) | Folder containing the project runtime files: `.env`, databases, media and collected statics.                                                |
 | LOAD_DOTENV               | `True`                           | Try to load environment variables from `$PROJECT_BASE_DIR/.env` file.                                                                       |
 | SECRET_KEY                |                                  | Django [`SECRET_KEY`](https://docs.djangoproject.com/en/5.2/ref/settings/#std:setting-SECRET_KEY) setting.                                  |
 | DEBUG                     | `False`                          | Django [`DEBUG`](https://docs.djangoproject.com/en/5.2/ref/settings/#debug) setting.                                                        |
+| DEV                       | `False`                          | Development mode: activate browser reload.                                                                                                  |
 | ALLOWED_HOSTS             | `[]`                             | Django [`ALLOWED_HOSTS`](https://docs.djangoproject.com/en/5.2/ref/settings/#allowed-hosts) setting.                                        |
 | INTERNAL_IPS              | `[]`                             | Django [`INTERNAL_IPS`](https://docs.djangoproject.com/en/5.2/ref/settings/#internal-ips) setting. Also used to activate the debug toolbar. |
 | DJANGO_SERVE_STATIC_FILES | `False`                          | Serve collected static files from `$PROJECT_BASE_DIR/static/` on `/static/` when `$DEBUG` is not true.                                      |

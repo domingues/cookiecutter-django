@@ -11,6 +11,7 @@ import copy
 from pathlib import Path
 
 import environ
+from django.core.exceptions import ImproperlyConfigured
 from django.utils import log
 
 # Don't generate translations for this file, import as _gettext_lazy
@@ -22,6 +23,8 @@ env = environ.Env()
 BASE_DIR = Path(env.str("PROJECT_BASE_DIR", "")).resolve()
 
 if env.bool("LOAD_DOTENV", True):
+    if not (BASE_DIR / ".env").exists():
+        raise ImproperlyConfigured(f"Dot env {BASE_DIR / '.env'} does not exist.")
     environ.Env.read_env(BASE_DIR / ".env")
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -29,6 +32,10 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", False)
+
+DEV = env.bool("DEV", False)
+if DEV and not DEBUG:
+    raise ImproperlyConfigured("Can't activate development mode with debug disabled.")
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
@@ -44,11 +51,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "debug_toolbar",
 ]
+if DEBUG:
+    INSTALLED_APPS += [
+        "debug_toolbar",
+    ]
+if DEBUG and DEV:
+    INSTALLED_APPS += [
+        "django_browser_reload",
+    ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -58,6 +71,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+if DEBUG:
+    MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+if DEBUG and DEV:
+    MIDDLEWARE.insert(1, "django_browser_reload.middleware.BrowserReloadMiddleware")
 
 ROOT_URLCONF = "{{cookiecutter.python_namespace}}.{{cookiecutter.project_slug}}.urls"
 
