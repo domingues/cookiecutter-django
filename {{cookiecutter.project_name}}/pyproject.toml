@@ -15,6 +15,11 @@ dependencies = [
     "django-browser-reload>=1.21.0",
 ]
 
+[dependency-groups]
+lint = [
+    "django-stubs~=5.2.9",
+]
+
 [project.urls]
 Homepage = "{{cookiecutter.project_url}}"
 Repository = "{{cookiecutter.project_repo}}"
